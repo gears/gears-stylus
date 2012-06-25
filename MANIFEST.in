@@ -1,0 +1,5 @@
+include LICENSE
+include README.rst
+
+include gears_stylus/compiler.js
+recursive-include gears_stylus/node_modules *
