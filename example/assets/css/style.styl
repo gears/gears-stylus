@@ -1,0 +1,17 @@
+@import 'nib'
+
+foo()
+  width: 20px
+  .foo
+    {block}
+
+.bar
+  +foo()
+    padding: 0
+    .baz
+      height: 20px
+
+
+.description {
+  overflow: ellipsis
+}
