@@ -8,7 +8,7 @@ def read(filename):
 
 setup(
     name='gears-stylus',
-    version='0.1.3',
+    version='0.1.4',
     url='https://github.com/gears/gears-stylus',
     license='ISC',
     author='Mike Yumatov',
