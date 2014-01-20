@@ -4,7 +4,7 @@ gears-stylus
 Stylus_ compiler for Gears_. This package already includes the Stylus source
 code for you, so you don't need to worry about installing it yourself.
 
-Bundled Stylus version: **0.41.3**
+Bundled Stylus version: **0.42.1**
 
 Installation
 ------------
