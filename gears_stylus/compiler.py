@@ -1,5 +1,6 @@
 import os
 import re
+from pkg_resources import iter_entry_points
 
 from gears.asset_attributes import AssetAttributes
 from gears.compilers import ExecCompiler
@@ -14,6 +15,13 @@ class StylusCompiler(ExecCompiler):
     executable = 'node'
     params = [os.path.join(os.path.dirname(__file__), 'compiler.js')]
 
+    def __init__(self, *args, **kwargs):
+        self.paths = []
+        super(StylusCompiler, self).__init__(*args, **kwargs)
+        for entry_point in iter_entry_points('gears_stylus', 'register'):
+            register = entry_point.load()
+            register(self)
+
     def __call__(self, asset):
         self.asset = asset
         self.register_dependencies()
@@ -22,6 +30,7 @@ class StylusCompiler(ExecCompiler):
     def get_args(self):
         args = super(StylusCompiler, self).get_args()
         args.append(self.asset.absolute_path)
+        args.extend(self.paths)
         return args
 
     def register_dependencies(self):
